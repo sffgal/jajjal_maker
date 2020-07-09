@@ -13,9 +13,7 @@
     <title>자짤생성기</title>
   </head>
   <body onload="init();">
-    <form action="https://gallog.dcinside.com/kroideee/guestbook">
-      <input type="submit" value="문의" />
-    </form>
+    <button type="button" class="block" onClick="window.open('https://gall.dcinside.com/mgallery/board/lists?id=sff');">SFF갤 놀러가기</button>
     <div id="frame">
       <div id="heading" class="abs">CPU
 MB
@@ -36,7 +34,7 @@ OS
       <div id="footer" class="abs">DCINSIDE SFF GALLERY</div>
       <canvas id="canvas" width="850" height="300"></canvas>
     </div>
-    <input type='button' id='but_screenshot' value='찰칵' onclick='screenshot();'>
+    <input type='button' class="block" id='but_screenshot' value='찰칵' onclick='screenshot();'>
     <br><br>
 
     <input type="text" value="nickName" id="nick_input"><br>
@@ -66,9 +64,11 @@ PSU
 CHA
 CS
 OS</textarea>
-    <input type='button' id='but_screenshot' value='적용' onclick='apply();'><br/>
-    <iframe src="https://gallog.dcinside.com/kroideee/guestbook" width="1" height="1"></iframe>
+    <input type='button' id='but_screenshot' class="block" value='적용' onclick='apply();'><br/>
     <img id='output'/>
-
+    <form action="https://gallog.dcinside.com/kroideee/guestbook">
+      <input type="submit" value="문의" />
+    </form>
+    <iframe src="https://gallog.dcinside.com/kroideee/guestbook" width="1" height="1"></iframe>
   </body>
 </html>

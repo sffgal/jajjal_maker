@@ -42,3 +42,13 @@ body {
     font-size: 13.5pt;
     font-weight: lighter;
 }
+
+.block {
+    display: block;
+    width: 850px;
+    padding: 14px 28px;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+    text-align: center;
+  }
