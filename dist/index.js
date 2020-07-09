@@ -149,11 +149,9 @@ window.apply = function () {
 };
 
 window.screenshot = function () {
-  console.log(document.getElementById('frame').width);
   html2canvas__WEBPACK_IMPORTED_MODULE_0___default()(document.getElementById('frame'), {
     scale: 1
   }).then(function (c) {
-    console.log(c.width);
     document.getElementById("output").src = c.toDataURL();
   });
 };
@@ -7316,4 +7314,3 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=index.js.map
