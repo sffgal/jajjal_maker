@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width initial-scale=1.0"> 
     <script src="./dist/index.js"></script>
     <link rel="stylesheet" type="text/css" href="./index.css" />
     <link
@@ -12,11 +12,11 @@
     />
     <title>자짤생성기</title>
   </head>
-  <body style="margin: 0; overflow: hidden;" onload="init();">
+  <body onload="init();">
     <form action="https://gallog.dcinside.com/kroideee/guestbook">
       <input type="submit" value="문의" />
     </form>
-    <div class="container" id="frame">
+    <div id="frame">
       <div id="heading" class="abs">CPU
 MB
 RAM
@@ -31,7 +31,7 @@ OS
       <div id="list" class="text abs">
       </div>
       <div id="nick" class="text abs">
-        nickName
+        nickName닉네임
       </div>
       <div id="footer" class="abs">DCINSIDE SFF GALLERY</div>
       <canvas id="canvas" width="850" height="300"></canvas>

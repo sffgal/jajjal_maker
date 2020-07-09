@@ -30,10 +30,10 @@ body {
 
 #nick {
     font-weight: bolder;
-    font-size: 36px;
+    font-size: 33px;
     white-space: pre-line;
-    bottom: 2px;
-    right: 13px;
+    bottom: 4px;
+    right: 14px;
 }
 
 #footer {

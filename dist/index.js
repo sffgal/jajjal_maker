@@ -104,10 +104,6 @@ var WIDTH = 850,
     HEIGHT = 300;
 var loadedImages = {};
 
-var varToString = function varToString(varObj) {
-  return Object.keys(varObj)[0];
-};
-
 function resizeImg(img, maxWidth, maxHeight) {
   var canvas = document.createElement("canvas"),
       ctx = canvas.getContext('2d');
@@ -153,17 +149,12 @@ window.apply = function () {
 };
 
 window.screenshot = function () {
+  console.log(document.getElementById('frame').width);
   html2canvas__WEBPACK_IMPORTED_MODULE_0___default()(document.getElementById('frame'), {
-    backgroundColor: "transparent"
+    scale: 1
   }).then(function (c) {
-    var canvas = document.createElement('canvas');
-    canvas.width = WIDTH;
-    canvas.height = HEIGHT;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(document.getElementById("canvas"), 0, 0);
-    ctx.drawImage(c, 0, 0);
-    console.log(document.getElementById("output").src);
-    document.getElementById("output").src = canvas.toDataURL();
+    console.log(c.width);
+    document.getElementById("output").src = c.toDataURL();
   });
 };
 
