@@ -158,11 +158,12 @@ window.screenshot = function () {
   }).then(function (c) {
     var canvas = document.createElement('canvas');
     canvas.width = WIDTH;
-    canvas.height = WIDTH;
+    canvas.height = HEIGHT;
     var ctx = canvas.getContext("2d");
     ctx.drawImage(document.getElementById("canvas"), 0, 0);
     ctx.drawImage(c, 0, 0);
-    document.body.appendChild(canvas);
+    console.log(document.getElementById("output").src);
+    document.getElementById("output").src = canvas.toDataURL();
   });
 };
 
@@ -187,10 +188,10 @@ window.init = function () {
 function draw() {
   var canvas1 = document.createElement('canvas');
   canvas1.width = WIDTH;
-  canvas1.height = WIDTH;
+  canvas1.height = HEIGHT;
   var canvas2 = document.createElement('canvas');
   canvas2.width = WIDTH;
-  canvas2.height = WIDTH;
+  canvas2.height = HEIGHT;
 
   (function () {
     var ctx = canvas1.getContext("2d");
