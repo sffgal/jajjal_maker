@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="./dist/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css"
+    />
+    <title>Hello World</title>
+  </head>
+  <body style="margin: 0; overflow: hidden;" onload="init();">
+    <form action="https://gallog.dcinside.com/kroideee/guestbook">
+      <input type="submit" value="문의" />
+    </form>
+    <div class="container" id="frame">
+      <div id="heading" class="abs">CPU
+MB
+RAM
+VGA
+SSD
+HDD
+PSU
+CHA
+CS
+OS
+      </div>
+      <div id="list" class="text abs">
+      </div>
+      <div id="nick" class="text abs">
+        nickName
+      </div>
+      <div id="footer" class="abs">DCINSIDE SFF GALLERY</div>
+      <canvas id="canvas" width="850" height="300"></canvas>
+    </div>
+    <input type='button' id='but_screenshot' value='찰칵' onclick='screenshot();'>
+    <br><br>
+
+    <input type="text" value="nickName" id="nick_input"><br>
+    <input type="text" value="DCINSIDE SFF GALLERY" id="footer_input"><br><br>
+    [제목]<br>
+    <textarea id="header_input" cols="40" rows="5">CPU
+MB
+RAM
+VGA
+SSD
+HDD
+PSU
+CHA
+CS
+OS</textarea><br><br>
+[내용]<br>
+    <textarea id="list_input" cols="40" rows="5">CPU
+MB
+RAM
+VGA
+SSD
+HDD
+PSU
+CHA
+CS
+OS</textarea>
+    <input type='button' id='but_screenshot' value='적용' onclick='apply();'><br/>
+    <iframe src="https://gallog.dcinside.com/kroideee/guestbook" width="1" height="1"></iframe>
+
+  </body>
+</html>

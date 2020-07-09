@@ -1,0 +1,44 @@
+body {
+    font-family: 'NanumSquare', sans-serif !important;
+}
+
+#frame {
+    color: white;
+    position: relative;
+    font-size: 15pt;
+    line-height: 1.2;
+    width: 850px;
+    height: 300px;
+}
+
+.abs {
+    position: absolute;
+}
+
+#heading {
+    white-space: pre-line;
+    top: 18px;
+    left: 23px;
+    font-weight: bold;
+}
+
+#list {
+    white-space: pre-line;
+    top: 18px;
+    left: 85px;
+}
+
+#nick {
+    font-weight: bolder;
+    font-size: 36px;
+    white-space: pre-line;
+    bottom: 2px;
+    right: 13px;
+}
+
+#footer {
+    bottom: 17px;
+    left: 23px;
+    font-size: 13.5pt;
+    font-weight: lighter;
+}
