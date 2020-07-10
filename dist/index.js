@@ -8749,25 +8749,42 @@ var color_list = {
   outer_bg: ["#4451a5", "#fff"],
   inner_bg: ["#181c3a", "#fff"]
 };
-
+/*
 function resizeImg(img, maxWidth, maxHeight) {
   var canvas = document.createElement("canvas"),
-      ctx = canvas.getContext("2d"); // set size proportional to image
+    ctx = canvas.getContext("2d");
 
+  // set size proportional to image
   canvas.width = maxWidth;
-  canvas.height = maxHeight; // step 1 - resize to 50%
+  canvas.height = maxHeight;
 
+  // step 1 - resize to 50%
   var oc = document.createElement("canvas"),
-      octx = oc.getContext("2d");
+    octx = oc.getContext("2d");
+
   oc.width = img.width * 0.5;
   oc.height = img.height * 0.5;
-  octx.drawImage(img, 0, 0, oc.width, oc.height); // step 2
+  octx.drawImage(img, 0, 0, oc.width, oc.height);
 
-  octx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5); // step 3, resize to final size
+  // step 2
+  octx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5);
 
-  ctx.drawImage(oc, 0, 0, oc.width * 0.5, oc.height * 0.5, 0, 0, canvas.width, canvas.height);
+  // step 3, resize to final size
+  ctx.drawImage(
+    oc,
+    0,
+    0,
+    oc.width * 0.5,
+    oc.height * 0.5,
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
   return canvas;
 }
+*/
 
 window.uploadImage = function (e) {
   var reader = new FileReader();
