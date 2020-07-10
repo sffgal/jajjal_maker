@@ -9,10 +9,15 @@ body {
     line-height: 1.2;
     width: 850px;
     height: 300px;
+    overflow: hidden;
 }
 
 .abs {
     position: absolute;
+}
+
+.thumb {
+    z-index: -1;
 }
 
 #heading {

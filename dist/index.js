@@ -8780,6 +8780,7 @@ window.uploadImage = function (e) {
     };
 
     img.src = event.target.result;
+    images["sample"] = event.target.result;
   };
 
   reader.readAsDataURL(e.files[0]);
@@ -8794,6 +8795,7 @@ window.apply = function () {
 };
 
 window.screenshot = function () {
+  window.scrollTo(0, 0);
   html2canvas__WEBPACK_IMPORTED_MODULE_0___default()(document.getElementById("frame"), {
     scale: 1
   }).then(function (c) {
@@ -8965,6 +8967,7 @@ function draw() {
 
   (function () {
     var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, WIDTH, HEIGHT);
     var w = loadedImages["sample"].width,
         h = loadedImages["sample"].height,
         width,
@@ -8976,15 +8979,21 @@ function draw() {
       height = 240;
       width = height * w / h;
       x = 490 - (width - 350) / 2;
-      y = 10;
+      y = 11;
     } else {
       width = 350;
       height = width * h / w;
       x = 490;
-      y = 10 - (height - 240) / 2;
+      y = 11 - (height - 240) / 2;
     }
 
-    ctx.drawImage(resizeImg(loadedImages["sample"], width, height), x, y);
+    var image = document.getElementById("thumb");
+    image.src = images["sample"];
+    image.style.top = y + 'px';
+    image.style.left = x + 'px';
+    image.style.width = width + 'px';
+    image.style.height = height + 'px'; //ctx.drawImage(resizeImg(loadedImages["sample"], width, height), x, y);
+
     ctx.drawImage(canvas2, 0, 0);
     ctx.drawImage(canvas1, 0, 0);
   })();
