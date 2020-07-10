@@ -8810,6 +8810,8 @@ window.toggle = function (input) {
 
     _parent.style.display = _parent.style.display === "none" ? "block" : "none";
   }
+
+  draw();
 };
 
 window.init = function () {
