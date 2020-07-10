@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width initial-scale=1.0"> 
     <script src="./dist/index.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./index.css" />
     <link
       rel="stylesheet"
@@ -13,7 +14,7 @@
     <title>자짤생성기</title>
   </head>
   <body onload="init();">
-    <button type="button" class="block" onClick="window.open('https://gall.dcinside.com/mgallery/board/lists?id=sff');">SFF갤 놀러가기</button>
+    <button type="button" class="block btn btn-primary" onClick="window.open('https://gall.dcinside.com/mgallery/board/lists?id=sff');">SFF갤 놀러가기</button>
     <div id="frame">
       <div id="heading" class="abs">CPU
 MB
@@ -34,8 +35,34 @@ OS
       <div id="footer" class="abs">DCINSIDE SFF GALLERY</div>
       <canvas id="canvas" width="850" height="300"></canvas>
     </div>
-    <input type='button' class="block" id='but_screenshot' value='찰칵' onclick='screenshot();'>
+    <input type='button' class="block btn btn-secondary" id='but_screenshot' value='찰칵' onclick='screenshot();'>
     <br><br>
+
+    <div> 
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" onclick='toggle("outer_grad");'>
+        <label class="form-check-label" for="exampleCheck1">그라디언트</label>
+      </div>
+      테두리
+      <div class="picker border" id="outer_bg_1"></div>
+      <div class="picker border" style="display: none;" id="outer_bg_2"></div>
+    </div>
+
+    <div> 
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" onclick='toggle("inner_grad");'>
+        <label class="form-check-label" for="exampleCheck1">그라디언트</label>
+      </div>
+      배경
+      <div class="picker border" id="inner_bg_1"></div>
+      <div class="picker border" style="display: none;" id="inner_bg_2"></div>
+    </div>
+
+    글자색
+    <div class="picker border" id="text_bg"></div><br>
+
+
 
     <input type="text" value="nickName" id="nick_input"><br>
     <input type="text" value="DCINSIDE SFF GALLERY" id="footer_input"><br><br>
@@ -55,16 +82,16 @@ CS
 OS</textarea><br><br>
 [내용]<br>
     <textarea id="list_input" cols="40" rows="5">CPU
-MB
+MB 메인보드
 RAM
-VGA
+VGA 그래픽카드
 SSD
-HDD
-PSU
-CHA
-CS
-OS</textarea>
-    <input type='button' id='but_screenshot' class="block" value='적용' onclick='apply();'><br/>
+HDD 하드디스크
+PSU 파워
+CHA 케이스
+CS 쿨링시스템
+OS 운영체제</textarea>
+    <input type='button' id='but_screenshot' class="block btn btn-secondary" value='적용' onclick='apply();'><br/>
     <img id='output'/>
     <form action="https://gallog.dcinside.com/kroideee/guestbook">
       <input type="submit" value="문의" />
