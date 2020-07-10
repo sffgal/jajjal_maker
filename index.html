@@ -11,6 +11,7 @@
       type="text/css"
       href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css"
     />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/studio392/NanumGothic/master/NanumGothic.css" type='text/css'/>
     <title>자짤생성기</title>
   </head>
   <body onload="init();">
@@ -39,7 +40,13 @@ OS
       </div>
     </div>
     <input type='button' class="block btn btn-secondary" id='but_screenshot' value='찰칵' onclick='screenshot();'>
-    <br><br>
+    <br>
+
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" onclick='toggle("alt_font");'>
+      <label class="form-check-label" for="exampleCheck1">use alt font (지원안되는 글자)</label>
+    </div>
+    <br>
 
     <div> 
       <div class="form-check">
@@ -99,6 +106,6 @@ OS 운영체제</textarea>
     <form action="https://gallog.dcinside.com/kroideee/guestbook">
       <input type="submit" value="문의" />
     </form>
-    <iframe src="https://gallog.dcinside.com/kroideee/guestbook" width="1" height="1"></iframe>
+    
   </body>
 </html>

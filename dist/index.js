@@ -8824,10 +8824,26 @@ window.toggle = function (input) {
   if (input == "outer_grad") {
     var parent = document.getElementById("outer_bg_2");
     parent.style.display = parent.style.display === "none" ? "block" : "none";
-  } else {
+  } else if (input == "inner_grad") {
     var _parent = document.getElementById("inner_bg_2");
 
     _parent.style.display = _parent.style.display === "none" ? "block" : "none";
+  } else {
+    var _parent2 = document.getElementById("frame");
+
+    if (!_parent2.style.fontFamily) _parent2.style.fontFamily = 'NanumSquare';
+
+    if (_parent2.style.fontFamily === 'NanumSquare') {
+      _parent2.style.fontFamily = 'NanumGothic';
+      document.getElementById("footer").style.bottom = '19px';
+      document.getElementById("nick").style.bottom = '6px';
+    } else {
+      _parent2.style.fontFamily = 'NanumSquare';
+      document.getElementById("footer").style.bottom = '18px';
+      document.getElementById("nick").style.bottom = '5px';
+    }
+
+    console.log(1);
   }
 
   draw();

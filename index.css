@@ -1,6 +1,3 @@
-body {
-    font-family: 'NanumSquare', sans-serif !important;
-}
 
 #frame {
     color: white;
@@ -10,6 +7,7 @@ body {
     width: 850px;
     height: 300px;
     overflow: hidden;
+    font-family: 'NanumSquare';
 }
 
 .abs {
@@ -44,7 +42,7 @@ body {
 #footer {
     bottom: 18px;
     left: 23px;
-    font-size: 13.5pt;
+    font-size: 13pt;
     font-weight: lighter;
 }
 
