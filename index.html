@@ -1,23 +1,120 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width initial-scale=1.0"> 
-    <script src="./dist/index.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./index.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css"
-    />
-    <link rel="stylesheet" href="https://cdn.rawgit.com/studio392/NanumGothic/master/NanumGothic.css" type='text/css'/>
-    <title>자짤생성기</title>
-  </head>
-  <body onload="init();">
-    <button type="button" class="block btn btn-primary" onClick="window.open('https://gall.dcinside.com/mgallery/board/lists?id=sff');">SFF갤 놀러가기</button>
-    <div id="frame">
-      <div id="heading" class="abs">CPU
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <script src="./dist/index.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./index.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css" />
+  <link rel="stylesheet" href="https://cdn.rawgit.com/studio392/NanumGothic/master/NanumGothic.css" type='text/css' />
+  <title>자짤생성기</title>
+</head>
+
+<body onload="init();">
+  <div id="temp_frame" style="display: none;"></div>
+  <div id="container" class="container border border-primary p-0 mb-5">
+    <div class="col text-white bg-primary p-0">
+      <nav class="navbar justify-content-between">
+        <a class="navbar-brand font-weight-bold">자짤생성기</a>
+        <div class="ml-3">
+          <button class="btn text-white my-sm-0 font-weight-bold" type="submit">문의</button>
+          <button class="btn btn-danger my-2 my-sm-0 font-weight-bold" type="submit"
+            onClick="window.open('https://gall.dcinside.com/mgallery/board/lists?id=sff');">SFF갤 놀러가기</button>
+        </div>
+      </nav>
+    </div>
+    <div class="bg-light p-3">
+      <div class="bg-primary text-light m-0 pl-2 rounded-top font-weight-bold" style="width: 100px;">OUTPUT</div>
+      <img id='output' class="mb-4" src="https://via.placeholder.com/850x300?text=sffgal.kro.kr" style="max-width: 850px;" width="100%"/>
+      <div class="bg-primary text-light m-0 pl-2 rounded-top font-weight-bold" style="width: 100px;">CANVAS</div>
+      <div id="measure"></div>
+      <div id="frame" style="zoom: 0.5; ">
+        <div id="heading" class="abs topper">CPU
+          MB
+          RAM
+          VGA
+          SSD
+          HDD
+          PSU
+          CHA
+          CS
+          OS
+        </div>
+        <div id="list" class="text abs topper">
+        </div>
+        <div id="nick" class="text abs topper">
+          nickName
+        </div>
+        <div id="footer" class="abs topper">DCINSIDE SFF GALLERY</div>
+
+        <canvas id="canvas" class="top" width="850" height="300"></canvas>
+        <img id='thumb' class="abs" />
+
+      </div>
+      <div class="col p-0 mt-3">
+
+        <input type='button' class="w-100 btn btn-primary mb-3" id='but_screenshot' value='찰칵' onclick='screenshot();'>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <input type="file" onchange="uploadImage(this);" name="filename" accept="image/gif, image/jpeg, image/png">
+          </li>
+          <li class="list-group-item">
+
+            <div class="border rounded mb-1 p-2">
+              <label class="mb-1">테두리</label>
+              <div class="d-flex flex-row">
+                <div class="picker border" id="outer_bg_1"></div>
+                <div class="picker border" style="display: none;" id="outer_bg_2"></div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" onclick='toggle("outer_grad");'>
+                <label class="form-check-label" for="exampleCheck1">그라디언트</label>
+              </div>
+            </div>
+
+
+            <div class="border rounded mb-1 p-2">
+              <label class="mb-1">배경</label>
+              <div class="d-flex flex-row">
+                <div class="picker border" style=" float: left;" id="inner_bg_1"></div>
+                <div class="picker border" style="display: none; float: left;" id="inner_bg_2"></div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" onclick='toggle("inner_grad");'>
+                <label class="form-check-label" for="exampleCheck1">그라디언트</label>
+              </div>
+            </div>
+
+
+            
+            <div class="border rounded mb-1 p-2">
+              <label class="mb-1">글자색</label>
+              <div class="picker border" id="text_bg"></div>
+            </div>
+            
+          </li>
+          <li class="list-group-item">
+            <label class="mb-1">닉네임</label>
+            <input type="text" class="form-control form-control-sm mb-2" value="nickName" id="nick_input">
+            <label class="mb-1">꼬릿말</label>
+            <input type="text" class="form-control form-control-sm mb-2" value="DCINSIDE SFF GALLERY" id="footer_input">
+
+            <label class="mb-1">제목</label>
+            <div class="d-flex bd-highlight mb-2">
+              <textarea class="form-control w-auto pr-0 pl-2" rows="10" cols="1" style="resize: none;" disabled>1
+2
+3
+4
+5
+6
+7
+8
+9
+0</textarea>
+              <textarea class="form-control" id="header_input" rows="10" style="resize: none;">CPU
 MB
 RAM
 VGA
@@ -26,72 +123,21 @@ HDD
 PSU
 CHA
 CS
-OS
-      </div>
-      <div id="list" class="text abs">
-      </div>
-      <div id="nick" class="text abs">
-        nickName
-      </div>
-      <div id="footer" class="abs">DCINSIDE SFF GALLERY</div>
-      <img id='thumb' class="abs thumb" />
-      <canvas id="canvas" width="850" height="300"></canvas>
-      
-      </div>
-    </div>
-    <input type='button' class="block btn btn-secondary" id='but_screenshot' value='찰칵' onclick='screenshot();'>
-    <br>
-
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" onclick='toggle("alt_font");'>
-      <label class="form-check-label" for="exampleCheck1">use alt font (지원안되는 글자)</label>
-    </div>
-    <br>
-
-    <div> 
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" onclick='toggle("outer_grad");'>
-        <label class="form-check-label" for="exampleCheck1">그라디언트</label>
-      </div>
-      테두리
-      <div class="picker border" id="outer_bg_1"></div>
-      <div class="picker border" style="display: none;" id="outer_bg_2"></div>
-    </div>
-
-    <div> 
-      </div>
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" onclick='toggle("inner_grad");'>
-        <label class="form-check-label" for="exampleCheck1">그라디언트</label>
-      </div>
-      배경
-      <div class="picker border" id="inner_bg_1"></div>
-      <div class="picker border" style="display: none;" id="inner_bg_2"></div>
-    </div>
-
-    글자색
-    <div class="picker border" id="text_bg"></div><br>
-
-
-
-    <input type="text" value="nickName" id="nick_input"><br>
-    <input type="text" value="DCINSIDE SFF GALLERY" id="footer_input"><br><br>
-
-    <input type="file" onchange="uploadImage(this);" name="filename" accept="image/gif, image/jpeg, image/png"><br><br>
-
-    [제목]<br>
-    <textarea id="header_input" cols="40" rows="5">CPU
-MB
-RAM
-VGA
-SSD
-HDD
-PSU
-CHA
-CS
-OS</textarea><br><br>
-[내용]<br>
-    <textarea id="list_input" cols="40" rows="5">CPU
+OS</textarea>
+            </div>
+            <label class="mb-1">내용</label>
+            <div class="d-flex bd-highlight mb-2">
+              <textarea class="form-control w-auto pr-0 pl-2" rows="10" cols="1" style="resize: none;" disabled>1
+2
+3
+4
+5
+6
+7
+8
+9
+0</textarea>
+              <textarea class="form-control" id="list_input" rows="10" style="resize: none;">CPU
 MB 메인보드
 RAM
 VGA 그래픽카드
@@ -101,11 +147,23 @@ PSU 파워
 CHA 케이스
 CS 쿨링시스템
 OS 운영체제</textarea>
-    <input type='button' id='but_screenshot' class="block btn btn-secondary" value='적용' onclick='apply();'><br/>
-    <img id='output'/>
-    <form action="https://gallog.dcinside.com/kroideee/guestbook">
-      <input type="submit" value="문의" />
-    </form>
-    
-  </body>
+            </div>
+
+          </li>
+          <li class="list-group-item">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" onclick='toggle("alt_font");'>
+              <label class="form-check-label" for="exampleCheck1">use alt font (글씨 깨질때)</label>
+            </div>
+          </li>
+        </ul>
+        <input type='button' id='but_screenshot' class="w-100 btn btn-primary m-0 mt-3" value='적용' onclick='apply();'><br />
+      </div>
+    </div>
+
+  </div>
+
+
+</body>
+
 </html>

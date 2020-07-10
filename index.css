@@ -1,5 +1,5 @@
 
-#frame {
+#frame, #temp_frame {
     color: white;
     position: relative;
     font-size: 15pt;
@@ -11,11 +11,16 @@
 }
 
 .abs {
-    position: absolute;
+    position: absolute !important;
 }
 
-.thumb {
-    z-index: -1;
+.top {
+    position: relative;
+    z-index: 1 !important;
+}
+
+.topper {
+    z-index: 2 !important;
 }
 
 #heading {

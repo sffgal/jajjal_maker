@@ -8786,6 +8786,18 @@ function resizeImg(img, maxWidth, maxHeight) {
 }
 */
 
+function resizeFrame() {
+  var pWidth = document.getElementById("measure").offsetWidth;
+
+  if (pWidth < 850) {
+    document.getElementById("frame").style.zoom = pWidth / 850;
+  } else document.getElementById("frame").style.zoom = 1;
+}
+
+window.onresize = function (event) {
+  resizeFrame();
+};
+
 window.uploadImage = function (e) {
   var reader = new FileReader();
 
@@ -8813,11 +8825,18 @@ window.apply = function () {
 
 window.screenshot = function () {
   window.scrollTo(0, 0);
-  html2canvas__WEBPACK_IMPORTED_MODULE_0___default()(document.getElementById("frame"), {
+  var temp_frame = document.getElementById("temp_frame");
+  temp_frame.style.display = 'block';
+  var frame = document.getElementById("frame");
+  temp_frame.innerHTML = frame.innerHTML;
+  draw();
+  html2canvas__WEBPACK_IMPORTED_MODULE_0___default()(temp_frame, {
     scale: 1
   }).then(function (c) {
     document.getElementById("output").src = c.toDataURL();
   });
+  temp_frame.innerHTML = "";
+  temp_frame.style.display = "none";
 };
 
 window.toggle = function (input) {
@@ -8850,6 +8869,7 @@ window.toggle = function (input) {
 };
 
 window.init = function () {
+  resizeFrame();
   var promiseArray = Object.keys(images).map(function (imgid) {
     var imgurl = images[imgid];
     var prom = new Promise(function (resolve) {
