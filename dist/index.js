@@ -8861,8 +8861,6 @@ window.toggle = function (input) {
       document.getElementById("footer").style.bottom = '18px';
       document.getElementById("nick").style.bottom = '5px';
     }
-
-    console.log(1);
   }
 
   draw();
@@ -8937,7 +8935,6 @@ window.init = function () {
 
   (function () {
     var parent = document.getElementById("inner_bg_2");
-    console.log(parent);
     parent.style.background = color_list.inner_bg[1];
     var picker = new vanilla_picker__WEBPACK_IMPORTED_MODULE_1__["default"]({
       parent: parent,
@@ -8954,7 +8951,6 @@ window.init = function () {
 
   (function () {
     var parent = document.getElementById("text_bg");
-    console.log(parent);
     var picker = new vanilla_picker__WEBPACK_IMPORTED_MODULE_1__["default"]({
       parent: parent,
       color: "#fff",
