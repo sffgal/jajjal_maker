@@ -8852,19 +8852,29 @@ window.toggle = function (input) {
     var _parent = document.getElementById("inner_bg_2");
 
     _parent.style.display = _parent.style.display === "none" ? "block" : "none";
+  } else if (input == "text_bg_title") {
+    var _parent2 = document.getElementById("text_bg_title");
+
+    if (_parent2.style.display === "none") {
+      _parent2.style.display = "block";
+      document.getElementById("nick").style.color = document.getElementById("text_bg_title").style.background;
+    } else {
+      _parent2.style.display = "none";
+      document.getElementById("nick").style.color = "";
+    }
   } else if (input == "outer_shadow") {
     options.outer_shadow = !options.outer_shadow;
   } else if (input == "alt_font") {
-    var _parent2 = document.getElementById("frame");
+    var _parent3 = document.getElementById("frame");
 
-    if (!_parent2.style.fontFamily) _parent2.style.fontFamily = 'NanumSquare';
+    if (!_parent3.style.fontFamily) _parent3.style.fontFamily = 'NanumSquare';
 
-    if (_parent2.style.fontFamily === 'NanumSquare') {
-      _parent2.style.fontFamily = 'NanumGothic';
+    if (_parent3.style.fontFamily === 'NanumSquare') {
+      _parent3.style.fontFamily = 'NanumGothic';
       document.getElementById("footer").style.bottom = '19px';
       document.getElementById("nick").style.bottom = '6px';
     } else {
-      _parent2.style.fontFamily = 'NanumSquare';
+      _parent3.style.fontFamily = 'NanumSquare';
       document.getElementById("footer").style.bottom = '18px';
       document.getElementById("nick").style.bottom = '5px';
     }
@@ -8967,6 +8977,20 @@ window.init = function () {
     picker.onChange = function (color) {
       parent.style.background = color.rgbaString;
       document.getElementById("frame").style.color = color.rgbaString;
+    };
+  })();
+
+  (function () {
+    var parent = document.getElementById("text_bg_title");
+    var picker = new vanilla_picker__WEBPACK_IMPORTED_MODULE_1__["default"]({
+      parent: parent,
+      color: "#fff",
+      alpha: true
+    });
+
+    picker.onChange = function (color) {
+      parent.style.background = color.rgbaString;
+      document.getElementById("nick").style.color = color.rgbaString;
     };
   })();
 };
