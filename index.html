@@ -68,12 +68,16 @@
             <div class="border rounded mb-1 p-2">
               <label class="mb-1">테두리</label>
               <div class="d-flex flex-row">
-                <div class="picker border" id="outer_bg_1"></div>
-                <div class="picker border" style="display: none;" id="outer_bg_2"></div>
+                <div class="picker border rounded" id="outer_bg_1"></div>
+                <div class="picker border rounded" style="display: none;" id="outer_bg_2"></div>
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" onclick='toggle("outer_grad");'>
-                <label class="form-check-label" for="exampleCheck1">그라디언트</label>
+                <label class="form-check-label">그라디언트</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" checked onclick='toggle("outer_shadow");'>
+                <label class="form-check-label">그림자</label>
               </div>
             </div>
 
@@ -81,12 +85,12 @@
             <div class="border rounded mb-1 p-2">
               <label class="mb-1">배경</label>
               <div class="d-flex flex-row">
-                <div class="picker border" style=" float: left;" id="inner_bg_1"></div>
-                <div class="picker border" style="display: none; float: left;" id="inner_bg_2"></div>
+                <div class="picker borde rounded" style=" float: left;" id="inner_bg_1"></div>
+                <div class="picker border rounded" style="display: none; float: left;" id="inner_bg_2"></div>
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" onclick='toggle("inner_grad");'>
-                <label class="form-check-label" for="exampleCheck1">그라디언트</label>
+                <label class="form-check-label">그라디언트</label>
               </div>
             </div>
 
@@ -94,7 +98,7 @@
 
             <div class="border rounded mb-1 p-2">
               <label class="mb-1">글자색</label>
-              <div class="picker border" id="text_bg"></div>
+              <div class="picker border rounded" id="text_bg"></div>
             </div>
 
           </li>

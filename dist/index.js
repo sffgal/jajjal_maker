@@ -8749,6 +8749,9 @@ var color_list = {
   outer_bg: ["#4451a5", "#fff"],
   inner_bg: ["#181c3a", "#fff"]
 };
+var options = {
+  outer_shadow: true
+};
 /*
 function resizeImg(img, maxWidth, maxHeight) {
   var canvas = document.createElement("canvas"),
@@ -8829,6 +8832,7 @@ window.screenshot = function () {
   temp_frame.style.display = 'block';
   var frame = document.getElementById("frame");
   temp_frame.innerHTML = frame.innerHTML;
+  temp_frame.style.cssText = frame.style.cssText;
   draw();
   html2canvas__WEBPACK_IMPORTED_MODULE_0___default()(temp_frame, {
     scale: 1
@@ -8836,6 +8840,7 @@ window.screenshot = function () {
     document.getElementById("output").src = c.toDataURL();
   });
   temp_frame.innerHTML = "";
+  temp_frame.style.cssText = "";
   temp_frame.style.display = "none";
 };
 
@@ -8847,7 +8852,9 @@ window.toggle = function (input) {
     var _parent = document.getElementById("inner_bg_2");
 
     _parent.style.display = _parent.style.display === "none" ? "block" : "none";
-  } else {
+  } else if (input == "outer_shadow") {
+    options.outer_shadow = !options.outer_shadow;
+  } else if (input == "alt_font") {
     var _parent2 = document.getElementById("frame");
 
     if (!_parent2.style.fontFamily) _parent2.style.fontFamily = 'NanumSquare';
@@ -8989,7 +8996,7 @@ function draw() {
     ctx.globalCompositeOperation = "destination-in";
     ctx.drawImage(loadedImages["img_border_bg"], 0, 0);
     ctx.restore();
-    ctx.drawImage(loadedImages["img_border_bg_sd"], 0, 0);
+    if (options.outer_shadow) ctx.drawImage(loadedImages["img_border_bg_sd"], 0, 0);
   })();
 
   (function () {
@@ -17120,7 +17127,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("./dist/691c72c75292ef51da0d32844ff62512.png");
+/* harmony default export */ __webpack_exports__["default"] = ("./dist/1af02113ae534f4b992c2c0bd75ab81a.png");
 
 /***/ }),
 /* 315 */
@@ -17128,7 +17135,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("./dist/3f2a1fc47c3961257d17eb6bb1af7765.png");
+/* harmony default export */ __webpack_exports__["default"] = ("./dist/3ffc7ebb9fb50e5ae69b1dbff9963340.png");
 
 /***/ })
 /******/ ]);
